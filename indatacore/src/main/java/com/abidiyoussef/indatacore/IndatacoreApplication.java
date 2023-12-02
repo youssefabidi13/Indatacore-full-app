@@ -37,9 +37,9 @@ public class IndatacoreApplication {
     CommandLineRunner commandLineRunner(){
         return args -> {
 //            userIndatacore.save(UserIndatacore.builder()
-//                    .email("elmessbahiyoussef@gmail.com")
+//                    .email("abidiyoussef@gmail.com")
 //                    .firstName("youssef")
-//                    .lastName("mesbahi")
+//                    .lastName("abidi")
 //                    .roles("USER")
 //                    .password(passwordEncoder.encode("admin"))
 //                    .build());
