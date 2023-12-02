@@ -6,7 +6,7 @@ Bienvenue dans le projet test évaluant vos compétences en développement full 
 
 ### Application Angular
 
-Réalisez une application Angular (de préférence) ou React avec les fonctionnalités suivantes :
+Réalisez une application Angular (de préférence)  avec les fonctionnalités suivantes :
 
 - Page SIGN IN / SIGN UP.
 - Un sidenav bar permettant à l'utilisateur de naviguer entre 3 pages.
