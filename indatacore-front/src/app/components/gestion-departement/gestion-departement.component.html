@@ -1,0 +1,118 @@
+<section class="section products-main">
+    <div class="container" *ngIf="!showEditForm">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="title text-center">
+            <h2>All departements</h2>
+            <!-- <p>The best Online sales to shop these weekend</p> -->
+          </div>
+        </div>
+      </div>
+  
+      
+        <button type="button" class="btn btn-primary" (click)="toggleEditForm()">
+          Add new departement
+        </button><br>
+        <br>
+        <table
+        class="table table-striped table-bordered table-sm row-border hover"
+        id="datatableexample"
+      >
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of departements">
+            <td>{{ d.code }}</td>
+            <td>{{ d.name }}</td>
+            <td>
+              <button
+              type="button" class="btn btn-primary" 
+              routerLink="/form-edit/{{d.id}}"
+              >
+                Update
+              </button>
+              &nbsp;
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDelete(d.id)">
+              Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="container"*ngIf="showEditForm">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="login-form border p-5">
+              <h2 class="mb-2">Add departement </h2>
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-4">
+            <label for="code">code</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter code"
+              formControlName="code"
+            />
+            <div
+              *ngIf="
+                editForm.get('code')?.invalid &&
+                editForm.get('code')?.touched
+              "
+            >
+              <small class="form-text text-danger"
+                >Please enter a valid code</small
+              >
+            </div>
+          </div>
+          
+          <div class="form-group mb-4">
+            <label for="name">Name of departement</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter name of departement"
+              formControlName="name"
+            />
+            <div
+              *ngIf="
+                editForm.get('name')?.invalid &&
+                editForm.get('name')?.touched
+              "
+            >
+              <small class="form-text text-danger"
+                >Please enter a valid name</small
+              >
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-main mt-3 btn-block"
+            [disabled]="!editForm.valid"
+          >
+            Add departement
+          </button>
+        </form>
+          </div>
+          </div>
+          </div>
+          </div>
+    
+  </section>
+  
+  
+  
+  
+    
+    
+    

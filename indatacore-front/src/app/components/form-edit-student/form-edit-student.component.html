@@ -1,0 +1,105 @@
+<section>
+    <div class="container">
+    <!-- *ngIf="showEditForm"> -->
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="login-form border p-5">
+                <h2 class="mb-2">Edit student </h2>
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-4">
+              <label for="firstName">firstname</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter firstname"
+                formControlName="firstName"
+              />
+              <div
+                *ngIf="
+                  editForm.get('firstName')?.invalid &&
+                  editForm.get('firstName')?.touched
+                "
+              >
+                <small class="form-text text-danger"
+                  >Please enter a valid firstname</small
+                >
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <label for="lastName">lastname</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter lastname "
+                formControlName="lastName"
+              />
+              <div
+                *ngIf="
+                  editForm.get('lastName')?.invalid &&
+                  editForm.get('lastName')?.touched
+                "
+              >
+                <small class="form-text text-danger"
+                  >Please enter a valid lastname </small
+                >
+              </div>
+            </div>
+            <div class="form-group mb-4">
+                <label for="age">age</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter age"
+                  formControlName="age"
+                />
+                <div
+                  *ngIf="
+                    editForm.get('age')?.invalid &&
+                    editForm.get('age')?.touched
+                  "
+                >
+                  <small class="form-text text-danger"
+                    >Please enter a valid age </small
+                  >
+                </div>
+              </div>
+              <div class="form-group mb-4">
+                <label for="email">email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter email"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    editForm.get('email')?.invalid &&
+                    editForm.get('email')?.touched
+                  "
+                >
+                  <small class="form-text text-danger"
+                    >Please enter a valid email </small
+                  >
+                </div>
+            <div class="form-group mb-4">
+                <label for="departement">Departement</label>
+                <select class="form-control" formControlName="departement">
+                <option *ngFor="let d of departements" [value]="d.id">
+                    {{ d.code }}
+                </option>
+                </select>
+              </div>
+              </div>
+            <button
+              type="submit"
+              class="btn btn-main mt-3 btn-block"
+              [disabled]="!editForm.valid"
+            >
+              Edit
+            </button>
+          </form>
+            </div>
+            </div>
+            </div>
+            </div>
+        </section>
